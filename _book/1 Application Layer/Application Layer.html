@@ -1,0 +1,533 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Application Layer · Gitbook使用教程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Ivan Mao">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../2 Transport Layer/Transport Layer.html" />
+    
+    
+    <link rel="prev" href="../0 Intro/Intro.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="http://ivanmao.mo.cn/Learning%20Notes/index.html">
+            
+                    
+                    Ivan Mao Learning Book
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Computer Network 1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0 Intro/Intro.html">
+            
+                <a href="../0 Intro/Intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="Application Layer.html">
+            
+                <a href="Application Layer.html">
+            
+                    
+                    Application Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../2 Transport Layer/Transport Layer.html">
+            
+                <a href="../2 Transport Layer/Transport Layer.html">
+            
+                    
+                    Transport Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../3 Network Layer/Network Layer.html">
+            
+                <a href="../3 Network Layer/Network Layer.html">
+            
+                    
+                    Network Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../4 Link Layer/Link Layer.html">
+            
+                <a href="../4 Link Layer/Link Layer.html">
+            
+                    
+                    Link Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Application Layer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="application-layer"><strong>Application Layer</strong></h1>
+<h3 id="two-predominant-architectural-paradigms&#x4F53;&#x7CFB;&#x7ED3;&#x6784;">Two predominant architectural paradigms(&#x4F53;&#x7CFB;&#x7ED3;&#x6784;)</h3>
+<p><strong>Client-Server paradigm</strong>: Web, Email, Streaming, Messaging, Interactive games</p>
+<p><strong>Peer-Peer paradigm:</strong> P2P file sharing</p>
+<h3 id="the-interface-between-the-process-and-the-computer-network">The Interface Between the Process and the Computer Network</h3>
+<p>process sends/receives messages to/from its socket</p>
+<p><strong>identifier = <ip address,="" port="" number=""></ip></strong></p>
+<p>To send HTTP message to gaia.cs.umass.edu web server:</p>
+<ul>
+<li><p>IP address: 128.119.245.12</p>
+</li>
+<li><p>port number: 80</p>
+</li>
+</ul>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\1.png" alt=""></p>
+<h3 id="web-html">Web: HTML</h3>
+<p>Web page:</p>
+<ul>
+<li>consists of <em>objects,</em> each can be stored on different Web servers</li>
+<li>object can be HTML file, JPEG image, Java applet, audio file,&#x2026;</li>
+<li>each object is addressable by a URL, e.g.,</li>
+</ul>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\2.png" alt=""></p>
+<h3 id="basics-of-http"><strong>Basics of HTTP</strong></h3>
+<h4 id="four-steps-using-tcp">Four steps using TCP</h4>
+<ol>
+<li>&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;TCP&#x8FDE;&#x63A5;</li>
+<li>&#x901A;&#x8FC7;TCP&#x53D1;&#x9001;HTTP&#x8BF7;&#x6C42;</li>
+<li>&#x901A;&#x8FC7;TCP&#x6536;&#x5230;HTTP&#x76F8;&#x5E94;</li>
+<li>&#x65AD;&#x5F00;TCP&#x8FDE;&#x63A5;</li>
+</ol>
+<h4 id="http-is-stateless">HTTP is stateless</h4>
+<p>HTTP&#x670D;&#x52A1;&#x5668;&#x5E76;&#x4E0D;&#x4FDD;&#x5B58;&#x5173;&#x4E8E;&#x5BA2;&#x6237;&#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F; -&gt; stateless</p>
+<p>ex; If a particular client asks for the same object twice in a period of a few seconds, the server does not respond by saying that it just served the object to the client; instead, the server resends the object, as it has completely forgotten what it did earlier</p>
+<h4 id="non-persistentpersistent-http-11">Non-persistent/Persistent HTTP (1.1)</h4>
+<ul>
+<li>Non-persistent: &#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x5BF9;&#x662F;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;TCP&#x8FDE;&#x63A5;&#x53D1;&#x8D77;&#x7684;</li>
+<li>Persistent&#xFF1A;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x5BF9;&#x662F;&#x7ECF;&#x8FC7;&#x76F8;&#x540C;&#x7684;TCP&#x8FDE;&#x63A5;&#x53D1;&#x8D77;&#x7684;<strong>&#xFF08;HTTP 1.1 &#x4F7F;&#x7528;&#xFF09;</strong></li>
+</ul>
+<p><strong>RTT (Round-Trip Time)(&#x5F80;&#x8FD4;&#x65F6;&#x95F4;)</strong>&#xFF1A;The time it takes for a small packet to travel from client to server and then back to the client. The RTT includes packet-propagation delays, packetqueuing delays in intermediate routers and switches, and packet-processing delays.</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\3.png" alt=""></p>
+<h3 id="http-request-message"><strong>HTTP request</strong> message</h3>
+<p>Two types of HTTP messages: <em>request</em>, <em>response</em></p>
+<p><strong>HTTP request message:</strong>  ASCII (human-readable format)</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\4.png" style="zoom:75%;"></p>
+<p><strong>HTTP request message: general format</strong></p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\5.png" style="zoom:75%;"></p>
+<p><strong>Other HTTP request</strong> <strong>messages</strong></p>
+<ol>
+<li><p><strong>POST method:</strong> </p>
+<ul>
+<li><p>web page often includes form input</p>
+</li>
+<li><p><strong>user input sent from client to server in entity body of HTTP POST request message</strong>&#xFF0C;Get&#x7684;&#x901A;&#x5E38;&#x4E3A;&#x7A7A;&#x7684;</p>
+</li>
+<li>&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x8868;&#x5355;</li>
+<li>Web&#x9875;&#x9762;&#x7684;&#x7279;&#x5B9A;&#x5185;&#x5BB9;&#x4F9D;&#x8D56;&#x4E8E;&#x7528;&#x6237;&#x5728;&#x8868;&#x5355;&#x8F93;&#x5165;&#x7684;&#x5185;&#x5BB9;&#xFF0C;Web&#x7684;&#x9875;&#x9762;&#x8BF7;&#x6C42;</li>
+</ul>
+</li>
+<li><p><strong>GET method:</strong></p>
+<ul>
+<li>Include user data in URL field of HTTP GET request message (following a &#x2018;?&#x2019;)&#xFF0C;<strong>&#x6240;&#x8BF7;&#x6C42;&#x7684;URL&#x4E2D;&#x5305;&#x62EC;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;</strong>:<img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\6.png" alt=""></li>
+</ul>
+</li>
+<li><p><strong>HEAD method:</strong></p>
+<ul>
+<li>Requests headers (only) that would be returned <em>if</em> specified URL were requested with an HTTP GET method. </li>
+<li>&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;HEAD&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;HTTP&#x54CD;&#x5E94;&#xFF0C;&#x4F46;&#x4E0D;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;</li>
+<li>&#x5E38;&#x7528;&#x6765;&#x8C03;&#x8BD5;&#x8DDF;&#x8E2A;</li>
+</ul>
+</li>
+<li><p><strong>PUT method:</strong></p>
+<ul>
+<li>uploads new file (object) to server</li>
+<li>completely replaces file that exists at specified URL with content in entity body of POST HTTP request message</li>
+</ul>
+</li>
+</ol>
+<h4 id="http-response-message"><strong>HTTP response</strong> <strong>message</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\7.png" style="zoom:75%;"></p>
+<p><strong>HTTP response</strong> <strong>status codes</strong></p>
+<p>status code appears in 1st line in server-to-client response message.</p>
+<p>some sample codes:</p>
+<ul>
+<li><p>200 OK</p>
+<p>request succeeded, requested object later in this message</p>
+</li>
+<li><p>301 Moved Permanently</p>
+<p>requested object moved, new location specified later in this message (in Location: field)</p>
+</li>
+<li><p>400 Bad Request</p>
+<p>request msg not understood by server</p>
+</li>
+<li><p>404 Not Found</p>
+<p>requested document not found on this server</p>
+</li>
+<li><p>505 HTTP Version Not Supported</p>
+</li>
+</ul>
+<h3 id="http-advanced-issues"><strong>HTTP: Advanced Issues</strong></h3>
+<h5 id="cookies">Cookies</h5>
+<ul>
+<li>Purpose: to solve the stateless issue</li>
+<li>Four components<ul>
+<li>A cookie header line in the HTTP response message</li>
+<li>A cookie header line in the HTTP request message</li>
+<li>A cookie file kept on the user&#x2019;s end system and managed by the user&#x2019;s browser</li>
+<li>A back-end database at the Web site</li>
+</ul>
+</li>
+</ul>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\8.png"></p>
+<h5 id="web-caches">Web caches</h5>
+<ul>
+<li><p>Purpose: satisfy client requests without involving origin server(&#x4FDD;&#x5B58;&#x6700;&#x8FD1;&#x8BF7;&#x6C42;&#x8FC7;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x526F;&#x672C;)</p>
+</li>
+<li><p>Also known as proxy server</p>
+</li>
+<li><p>Conditional Get: <strong>If-modified-since: <date>, HTTP/1.0 304 Not Modified</date></strong></p>
+<ol>
+<li>proxy cache&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5411;Web&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x62A5;&#x6587;&#xFF1A;</li>
+</ol>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\9.png" alt=""></p>
+<ol>
+<li><p>Web&#x670D;&#x52A1;&#x5668;&#x5411;&#x7F13;&#x5B58;&#x5668;&#x53D1;&#x9001;&#x5177;&#x6709;&#x88AB;&#x8BF7;&#x6C42;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x54CD;&#x5E94;&#x62A5;&#x6587;&#xFF1A;</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\10.png" alt=""></p>
+</li>
+<li><p>&#x4E00;&#x661F;&#x671F;&#x540E;&#x5BF9;&#x8C61;&#x4ECD;&#x50A8;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x518D;&#x5411;&#x5176;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x62A5;&#x6587;&#xFF0C;&#x8BE2;&#x95EE;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x88AB;&#x4FEE;&#x6539;&#xFF08;&#x65E5;&#x671F;&#x4E3A;&#x4E00;&#x661F;&#x671F;&#x524D;&#x8BBF;&#x95EE;&#x7684;&#x65E5;&#x671F;&#xFF09;</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\11.png" alt=""></p>
+</li>
+<li><p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4FEE;&#x6539;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x65E0;entity&#x7684;&#x62A5;&#x6587;&#xFF0C;&#x5426;&#x5219;&#x66F4;&#x65B0;</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\12.png" alt=""></p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="email-smtp-imap"><strong>Email, SMTP, IMAP</strong></h3>
+<p>Three major components&#xFF1A; <strong>user agents, mail servers, SMTP protocol</strong></p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\13.png" style="zoom:75%;"></p>
+<h4 id="smtp-procedure">SMTP procedure</h4>
+<ol>
+<li>Alice invokes her user agent for e-mail, provides Bob&#x2019;s e-mail address (for example, bob@someschool.edu), composes a message, and instructs the user agent to send the message. </li>
+<li>Alice&#x2019;s user agent sends the message to her mail server, where it is placed in a message queue.</li>
+<li>The client side of SMTP, running on Alice&#x2019;s mail server, sees the message in the message queue. It opens a TCP connection to an SMTP server, running on Bob&#x2019;s mail server. </li>
+<li>After some initial SMTP handshaking, the SMTP client sends Alice&#x2019;s message into the TCP connection. </li>
+<li>At Bob&#x2019;s mail server, the server side of SMTP receives the message. Bob&#x2019;s mail server then places the message in Bob&#x2019;s mailbox. </li>
+<li>Bob invokes his user agent to read the message at his convenience.</li>
+</ol>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\14.png" alt=""></p>
+<h4 id="client-stmp--server-stmp">client STMP =&gt; server STMP</h4>
+<ol>
+<li><p>Open a TCP connection</p>
+</li>
+<li><p>SMTP handshaking</p>
+</li>
+<li><p>SMTP transfer of messages</p>
+</li>
+<li><p>SMTP closure</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\15.png" style="zoom:76%;"></p>
+</li>
+</ol>
+<h3 id="comparison-with-http"><strong>Comparison with HTTP</strong></h3>
+<h5 id="different">Different</h5>
+<ul>
+<li><p>HTTP: client pull</p>
+<p>SMTP: client push</p>
+</li>
+<li><p>HTTP: each object encapsulated in its own response message(&#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x5B58;&#x50A8;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4E3B;&#x673A;&#x4E0A;)</p>
+<p>SMTP: multiple objects sent in multipart message&#xFF08;&#x5728;&#x540C;&#x4E00;&#x4E3B;&#x673A;&#xFF09;</p>
+</li>
+</ul>
+<p><strong>Same</strong></p>
+<ul>
+<li>Both have ASCII command/response interaction, status codes</li>
+</ul>
+<h3 id="domain-name-system-dns"><strong>Domain Name System (DNS)</strong></h3>
+<p>Application-layer protocol&#xFF1A; hosts, DNS servers communicate to <em>resolve</em> names   (hostname-to-IP-address translation)&#xFF1B;core Internet function</p>
+<p>Distributed database&#xFF1A; implemented in hierarchy of many <em>name servers</em></p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\16.png" alt=""></p>
+<h4 id="iterated-query&#xFF08;&#x8FED;&#x4EE3;&#x67E5;&#x8BE2;&#xFF09;"><strong>Iterated query&#xFF08;&#x8FED;&#x4EE3;&#x67E5;&#x8BE2;&#xFF09;:</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\17.png" alt=""></p>
+<h4 id="recursive-query&#xFF08;&#x9012;&#x5F52;&#x67E5;&#x8BE2;&#xFF09;"><strong>Recursive query&#xFF08;&#x9012;&#x5F52;&#x67E5;&#x8BE2;&#xFF09;:</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\18.png" alt=""></p>
+<p><strong>&#x5B9E;&#x8DF5;&#x4E2D;&#x8BF7;&#x6C42;&#x4E3B;&#x673A;&#x5230;&#x672C;&#x5730;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x67E5;&#x8BE2;&#x662F;&#x9012;&#x5F52;&#x7684;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x662F;&#x8FED;&#x4EE3;&#x7684;</strong></p>
+<h4 id="dns-records"><strong>DNS records</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\1 Application Layer\img\19.png" alt=""></p>
+<ul>
+<li><strong>Type=A: Name is a hostname, Value is the IP address for the hostname.</strong> Thus, a Type A record provides the standard hostname-to-IP address mapping. As an example, (relay1.bar.foo.com, 145.37.93.126, A) is a Type A record.</li>
+<li><strong>Type=NS: Name is a domain (such as foo.com), Value is the hostname of an authoritative DNS server that knows how to obtain the IP addresses for hosts in the domain.</strong> This record is used to route DNS queries further along in the query chain. As an example, (foo.com, dns.foo.com, NS) is a Type NS record. <strong>Value&#x662F;&#x83B7;&#x5F97;&#x8BE5;&#x57DF;&#x4E3B;&#x673A;IP&#x5730;&#x5740;&#x7684;&#x6743;&#x5A01;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x673A;&#x540D;</strong></li>
+<li><strong>Type=CNAME: Value is a canonical hostname for the alias hostname Name</strong>. This record can provide querying hosts the canonical name for a hostname. As an example, (foo.com, relay1.bar.foo.com, CNAME) is a CNAME record. <strong>Value&#x662F;&#x522B;&#x540D;&#x4E3A;Name &#x7684;&#x4E3B;&#x673A;&#x5BF9;&#x5E94;&#x7684;&#x89C4;&#x8303;&#x4E3B;&#x673A;&#x540D;</strong></li>
+<li><strong>Type=MX: then Value is the canonical name of a mail server that has an alias hostname Name.</strong> As an example, (foo.com, mail.bar.foo.com, MX) is an MX record. MX records allow the hostnames of mail servers to have simple aliases. Note that by using the MX record, a company can have the same aliased name for its mail server and for one of its other servers (such as its Web server). To obtain the canonical name for the mail server, a DNS client would query for an MX record; to obtain the canonical name for the other server, the DNS client would query for the CNAME record. <strong>Value&#x662F;&#x522B;&#x540D;&#x4E3A;Name &#x7684;&#x90AE;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#x5BF9;&#x5E94;&#x7684;&#x89C4;&#x8303;&#x4E3B;&#x673A;&#x540D;</strong></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../0 Intro/Intro.html" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../2 Transport Layer/Transport Layer.html" class="navigation navigation-next " aria-label="Next page: Transport Layer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Application Layer","level":"1.2.2","depth":2,"next":{"title":"Transport Layer","level":"1.2.3","depth":2,"path":"2 Transport Layer/Transport Layer.md","ref":"2 Transport Layer/Transport Layer.md","articles":[]},"previous":{"title":"Introduction","level":"1.2.1","depth":2,"path":"0 Intro/Intro.md","ref":"0 Intro/Intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","katex","chapter-fold","code","splitter","-lunr","-search","search-pro","insert-logo"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"img/logo.png"}},"theme":"default","author":"Ivan Mao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitbook使用教程","language":"zh-hans","gitbook":"*","description":"学习Gitbook时总结的笔记"},"file":{"path":"1 Application Layer/Application Layer.md","mtime":"2022-12-20T02:46:15.655Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-03T01:47:13.518Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

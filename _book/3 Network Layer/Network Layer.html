@@ -1,0 +1,460 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Network Layer · Gitbook使用教程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Ivan Mao">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../4 Link Layer/Link Layer.html" />
+    
+    
+    <link rel="prev" href="../2 Transport Layer/Transport Layer.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="http://ivanmao.mo.cn/Learning%20Notes/index.html">
+            
+                    
+                    Ivan Mao Learning Book
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Computer Network 1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0 Intro/Intro.html">
+            
+                <a href="../0 Intro/Intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1 Application Layer/Application Layer.html">
+            
+                <a href="../1 Application Layer/Application Layer.html">
+            
+                    
+                    Application Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../2 Transport Layer/Transport Layer.html">
+            
+                <a href="../2 Transport Layer/Transport Layer.html">
+            
+                    
+                    Transport Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="Network Layer.html">
+            
+                <a href="Network Layer.html">
+            
+                    
+                    Network Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../4 Link Layer/Link Layer.html">
+            
+                <a href="../4 Link Layer/Link Layer.html">
+            
+                    
+                    Link Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Network Layer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="network-layer"><strong>Network Layer</strong></h1>
+<p>Functions: 1. Routing (control plane)    2. Fowarding (data plane)</p>
+<p>Architectures</p>
+<ul>
+<li>Traditional network: integrated control plane + data plane</li>
+<li>Software defined network (SDN): separated control plane + data plane</li>
+</ul>
+<h3 id="router-architecture"><strong>Router Architecture</strong></h3>
+<p><img src="img/1.png" style="zoom:75%;"></p>
+<h3 id="forwarding-table&#x6700;&#x957F;&#x5339;&#x914D;&#x539F;&#x5219;"><strong>Forwarding Table</strong>(&#x6700;&#x957F;&#x5339;&#x914D;&#x539F;&#x5219;)</h3>
+<p><img src="img/2.png" style="zoom:75%;"></p>
+<h3 id="switching-fabrics"><strong>Switching Fabrics</strong></h3>
+<p><img src="img/3.png" alt=""></p>
+<p><strong>Switching via memory&#xFF1A;</strong> the overall forwarding throughput (the total rate at which packets are transferred from input ports to output ports) must be less than B/2. Note also that two packets cannot be forwarded at the same time, even if they have different destination ports, since only one memory read/write can be done at a time over the shared system bus.</p>
+<p><strong>Switching via a bus&#xFF1A;</strong> All output ports receive the packet, but only the port that matches the label will keep the packet.</p>
+<p><strong>Switching via an interconnection network</strong>&#xFF1A;  </p>
+<h3 id="queuing"><strong>Queuing</strong></h3>
+<h4 id="input-port-queuing">Input port queuing</h4>
+<ul>
+<li><p>Condition: switch fabric slower than input ports combined</p>
+<p><img src="img/4.png" alt=""></p>
+</li>
+<li><p><strong>HOL blocking problem(&#x7EBF;&#x8DEF;&#x524D;&#x90E8;&#x5835;&#x585E;&#x95EE;&#x9898;)</strong>&#xFF1A;a queued packet in an input queue must wait for transfer through the fabric (even though its output port is free) because it is blocked by another packet at the head of the line. </p>
+<p><img src="img/5.png" alt=""></p>
+</li>
+</ul>
+<h4 id="output-port-queuing">Output port queuing</h4>
+<p>Condition: when datagrams arrive from fabric faster than link transmission rate</p>
+<p>How much buffering?</p>
+<p><img src="img/6.png" style="zoom:76%;"></p>
+<p>RTT: &#x5E73;&#x5747;&#x5F80;&#x8FD4;&#x65F6;&#x5EF6;</p>
+<p>C&#xFF1A;&#x94FE;&#x8DEF;&#x5BB9;&#x91CF;</p>
+<p>N&#xFF1A;&#x7AEF;&#x53E3;&#x6570;</p>
+<h3 id="scheduling"><strong>Scheduling</strong></h3>
+<ul>
+<li><h5 id="fcfs-fifo&#xFF1A;&#x5148;&#x8FDB;&#x5148;&#x51FA;">FCFS (FIFO)&#xFF1A;&#x5148;&#x8FDB;&#x5148;&#x51FA;</h5>
+<p><img src="img/7.png" style="zoom:75%;"></p>
+</li>
+<li><h5 id="priority-scheduling">Priority scheduling</h5>
+<p><img src="img/8.png" style="zoom:75%;"></p>
+</li>
+<li><h5 id="round-robin-rr-scheduling">Round Robin (RR) scheduling</h5>
+<p>packets are sorted into classes as with priority queuing. However, rather than there being a strict service priority among classes, a round robin scheduler alternates service among the classes</p>
+<p><img src="img/9.png" style="zoom:75%;"></p>
+</li>
+<li><p><strong>Weighted Fair Queuing (WFQ)</strong></p>
+</li>
+</ul>
+<p>&#x200B;                                                                        <img src="img/10.png" alt=""></p>
+<h3 id="ip-datagram-format"><strong>IP Datagram format</strong></h3>
+<p><img src="img/11.png" alt=""></p>
+<h3 id="subnets"><strong>Subnets</strong></h3>
+<p>device interfaces that can physically reach each other without passing through an intervening router</p>
+<h4 id="ip-addresses-have-structure">IP addresses have structure:</h4>
+<ul>
+<li>subnet part: devices in same subnet have common high order bits</li>
+<li>host part: remaining low order bits </li>
+</ul>
+<p><img src="img/12.png" alt=""></p>
+<h3 id="ip-addressing-cidr"><strong>IP addressing: CIDR</strong></h3>
+<p>CIDR: Classless InterDomain Routing (pronounced &#x201C;cider&#x201D;)</p>
+<ul>
+<li>subnet portion of address of arbitrary length</li>
+<li>format: a.b.c.d/x, where x is #bits in subnet portion of address</li>
+</ul>
+<h3 id="dynamic-host-configuration-protocol-dhcp">Dynamic Host Configuration Protocol (DHCP)</h3>
+<h4 id="function">Function</h4>
+<p>DHCP allows a host to obtain (be allocated) an IP address automatically. </p>
+<h4 id="process">Process</h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\3 Network Layer\img\13.png" alt=""></p>
+<p>DHCP server: typically co-located in router</p>
+<h3 id="network-address-translation-nat">Network Address Translation (NAT)</h3>
+<h4 id="motivation&#xFF1A;">Motivation&#xFF1A;</h4>
+<ul>
+<li>just one IP address needed from provider ISP for <em>all</em> devices</li>
+<li>can change addresses of host in local network without notifying outside worl</li>
+<li>can change ISP without changing addresses of devices in local network</li>
+<li>security: devices inside local net not directly addressable, visible by outside world</li>
+</ul>
+<h4 id="principle">Principle</h4>
+<p>all devices in local network share just one IPv4 address as far as outside world is concerned</p>
+<h4 id="process">Process</h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\3 Network Layer\img\14.png" style="zoom:75%;"></p>
+<h3 id="generalized-forwarding-in-sdn"><strong>Generalized Forwarding in SDN</strong></h3>
+<h4 id="match--action">Match + action</h4>
+<ul>
+<li>match: pattern values in packet header fields</li>
+<li>actions: for matched packet: drop, forward, modify, matched packet or send matched packet to controller </li>
+</ul>
+<p><img src="C:\Users\65151\Desktop\Computer Network\3 Network Layer\img\15.png" style="zoom:75%;"></p>
+<h4 id="openflow"><strong>OpenFlow</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\3 Network Layer\img\16.png" style="zoom:75%;"></p>
+<h3 id="routing-protocols"><strong>Routing Protocols</strong></h3>
+<h4 id="link-state-ls&#xFF1A;dijkstra-algorithm">Link State (LS)&#xFF1A;Dijkstra algorithm</h4>
+<pre><code>1  Initialization: 
+2    N&apos; = {u}                               /* compute least cost path from u to all other nodes */
+3    for all nodes v 
+4      if v adjacent to u            /* u initially knows direct-path-cost only to  direct neighbors    */
+5          then D(v) = cu,v                   /* but may not be minimum cost!                                                   
+6      else D(v) = &#x221E; 
+7 
+8   Loop 
+9   find w not in N&apos; such that D(w) is a minimum   
+10  add w to N&apos;   
+11  update D(v) for all v adjacent to w and not in N&apos; : 
+12  D(v) = min ( D(v),  D(w) + cw,v  ) 
+13  until all nodes in N&apos;
+</code></pre><p>&#x9700;&#x8981;&#x8F93;&#x5165;&#x4E00;&#x4E2A;source &#x548C;&#x5BF9;&#x5E94;&#x7684;&#x8868;</p>
+<p><img src="img/17.png" style="zoom:75%;"></p>
+<p>shortcoming: &#x4F1A;&#x51FA;&#x73B0;&#x7EBF;&#x8DEF;&#x62E5;&#x5835;&#x7A0B;&#x5EA6;&#x7684;&#x9707;&#x8361;</p>
+<h4 id="distance-vector-dv&#xFF1A;bellman-ford-algorithm">Distance Vector (DV)&#xFF1A;Bellman-Ford algorithm</h4>
+<p><img src="img/18.png" style="zoom:75%;"></p>
+<p>cons: &quot;&#x597D;&#x4E8B;&#x4F20;&#x64AD;&#x901F;&#x5EA6;&#x5FEB;&#xFF0C;&#x574F;&#x4E8B;&#x4F20;</p>
+<h3 id="three-classes-of-openflow-messages">Three classes of OpenFlow messages</h3>
+<ul>
+<li>controller-to-switch</li>
+<li>switch-to-controller</li>
+<li>symmetric (misc.)</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../2 Transport Layer/Transport Layer.html" class="navigation navigation-prev " aria-label="Previous page: Transport Layer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../4 Link Layer/Link Layer.html" class="navigation navigation-next " aria-label="Next page: Link Layer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Network Layer","level":"1.2.4","depth":2,"next":{"title":"Link Layer","level":"1.2.5","depth":2,"path":"4 Link Layer/Link Layer.md","ref":"4 Link Layer/Link Layer.md","articles":[]},"previous":{"title":"Transport Layer","level":"1.2.3","depth":2,"path":"2 Transport Layer/Transport Layer.md","ref":"2 Transport Layer/Transport Layer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","katex","chapter-fold","code","splitter","-lunr","-search","search-pro","insert-logo"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"img/logo.png"}},"theme":"default","author":"Ivan Mao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitbook使用教程","language":"zh-hans","gitbook":"*","description":"学习Gitbook时总结的笔记"},"file":{"path":"3 Network Layer/Network Layer.md","mtime":"2022-12-21T19:00:41.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-03T01:47:13.518Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,519 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Transport Layer · Gitbook使用教程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Ivan Mao">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../3 Network Layer/Network Layer.html" />
+    
+    
+    <link rel="prev" href="../1 Application Layer/Application Layer.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="http://ivanmao.mo.cn/Learning%20Notes/index.html">
+            
+                    
+                    Ivan Mao Learning Book
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Computer Network 1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0 Intro/Intro.html">
+            
+                <a href="../0 Intro/Intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1 Application Layer/Application Layer.html">
+            
+                <a href="../1 Application Layer/Application Layer.html">
+            
+                    
+                    Application Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="Transport Layer.html">
+            
+                <a href="Transport Layer.html">
+            
+                    
+                    Transport Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../3 Network Layer/Network Layer.html">
+            
+                <a href="../3 Network Layer/Network Layer.html">
+            
+                    
+                    Network Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../4 Link Layer/Link Layer.html">
+            
+                <a href="../4 Link Layer/Link Layer.html">
+            
+                    
+                    Link Layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Transport Layer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="transport-layer"><strong>Transport Layer</strong></h1>
+<p>Provide <em>logical communication</em> between app processes running on different hosts</p>
+<p>Transport protocols actions in end systems:</p>
+<ul>
+<li><strong>sender</strong>: breaks application messages into <em>segments</em>, passes to network layer</li>
+<li><strong>receiver</strong>: reassembles segments into messages, passes to application layer</li>
+</ul>
+<p>Two transport protocols: TCP, UDP</p>
+<p>Transport layer vs Network layer</p>
+<ul>
+<li><strong>Network</strong>: logical communication between <em>hosts</em></li>
+<li><strong>Transport</strong>: logical communication between <em>processes</em></li>
+</ul>
+<h3 id="demultiplexing&#x591A;&#x8DEF;&#x5206;&#x89E3;"><strong>Demultiplexing(&#x591A;&#x8DEF;&#x5206;&#x89E3;)</strong></h3>
+<p>Demultiplexing&#xFF1A;&#x5C06;&#x8FD0;&#x8F93;&#x5C42;&#x62A5;&#x6587;&#x6BB5;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x4ED8;&#x5230;&#x6B63;&#x786E;&#x7684;Socket</p>
+<p>Multiplexing&#xFF1A;&#x6E90;&#x4E3B;&#x673A;&#x6536;&#x96C6;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6309;&#x4E0A;&#x5934;&#x90E8;&#x4FE1;&#x606F;&#x4ECE;&#x800C;&#x751F;&#x6210;&#x62A5;&#x6587;&#x6BB5;</p>
+<h4 id="connectionless">Connectionless</h4>
+<p><img src="img/1.png" style="zoom:75%;"></p>
+<p>&#x5982;&#x679C;&#x4E24;&#x4E2A;UDP&#x62A5;&#x6587;&#x6BB5;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x6E90;IP&#x5730;&#x5740;&#x6216;/&#x548C;&#x6E90;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E24;&#x4E2A;&#x62A5;&#x6587;&#x5C06;&#x901A;&#x8FC7;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x7684;Socket&#x88AB;&#x6307;&#x5B9A;&#x5230;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x7684;&#x8FDB;&#x7A0B;</p>
+<h4 id="connection-oriented"><strong>Connection-oriented</strong></h4>
+<p><img src="img/2.png" style="zoom:75%;"></p>
+<p>Three segments, all destined to IP address: B, dest port: 80 are demultiplexed to <em>different</em> sockets</p>
+<h3 id="udp-user-datagram-protocol"><strong>UDP: User Datagram Protocol</strong></h3>
+<h5 id="udp-segment-structure">UDP Segment Structure</h5>
+<p><img src="img/3.png" alt=""></p>
+<h5 id="udp-checksum">UDP Checksum</h5>
+<p>&#x5BF9;&#x62A5;&#x6587;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6BD4;&#x7279;&#x5B57;&#x7684;&#x548C;&#x8FDB;&#x884C;&#x53CD;&#x7801;&#x8FD0;&#x7B97;&#xFF08;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#xFF09;&#xFF0C;&#x5982;&#x6709;&#x4EFB;&#x4F55;&#x6EA2;&#x51FA;&#x90FD;&#x88AB;&#x56DE;&#x5377;&#xFF0C;&#x82E5;&#x65E0;&#x6539;&#x53D8;&#x6700;&#x540E;&#x7ED3;&#x679C;&#x5E94;&#x4E3A;&#xFF1A;1111111111111</p>
+<p><img src="img/4.jpg" alt=""></p>
+<h3 id="principles-of-reliable-data-transfer-rdt"><strong>Principles of Reliable Data Transfer (RDT)</strong></h3>
+<p><img src="img/5.png" style="zoom:75%;"></p>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x5C42;&#x534F;&#x8BAE;&#x53EF;&#x9760;&#x4F7F;&#x5F97;&#x4E0B;&#x5C42;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x53D8;&#x5F97;&#x53EF;&#x9760;</p>
+<h4 id="rdt-10-underlying-channel-perfectly-reliable">rdt 1.0: underlying channel perfectly reliable</h4>
+<p>&#x5047;&#x8BBE;&#x5E95;&#x5C42;&#x4FE1;&#x9053;&#x662F;&#x5B8C;&#x5168;&#x53EF;&#x9760;&#x7684;</p>
+<p><img src="img/6.png" style="zoom:75%;"></p>
+<h4 id="rdt-20-channel-with-bit-errors-corrputed-packet">rdt 2.0: channel with bit errors (corrputed packet)</h4>
+<p>&#x5E95;&#x5C42;&#x4FE1;&#x9053;&#x5728;&#x5206;&#x7EC4;&#x4E2D;&#x7684;&#x6BD4;&#x7279;&#x53EF;&#x80FD;&#x53D7;&#x635F;</p>
+<p><img src="img/7.png" style="zoom:75%;"></p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5DEE;&#x9519;&#x53D1;&#x9001;ACK&#xFF0C;&#x5426;&#x5219;&#x53D1;&#x9001; NAK</p>
+<h4 id="rdt-21-handling-duplicates">rdt 2.1: handling duplicates</h4>
+<p>&#x89E3;&#x51B3;ACK&#x548C;NAK&#x53D7;&#x635F;&#x7684;&#x60C5;&#x51B5; -&gt;2.0 &#x53D1;&#x9001;&#x65B9;&#x91CD;&#x53D1;&#x5F53;&#x524D;&#x7684;&#x6570;&#x636E;&#x5206;&#x7EC4;-&gt;2.1&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x91CD;&#x53D1;&#x7684;&#x6570;&#x636E;&#x5206;&#x7EC4;</p>
+<p><img src=".img/8.png" style="zoom:75%;"></p>
+<p><img src="img/9.png" style="zoom:75%;"></p>
+<p>&#x5728;&#x6570;&#x636E;&#x5206;&#x7EC4;&#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x4F7F;&#x53D1;&#x9001;&#x65B9;&#x5BF9;&#x5176;&#x6570;&#x636E;&#x5206;&#x7EC4;&#x8FDB;&#x884C;&#x7F16;&#x53F7;&#xFF08;sequence number&#xFF09;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x901A;&#x8FC7;&#x68C0;&#x67E5;&#x5E8F;&#x53F7;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x662F;&#x5728;&#x91CD;&#x4F20;</p>
+<h4 id="rdt-22-nak-free-receiver-ack-with-seq">rdt 2.2: NAK-free (receiver ACK with seq#)</h4>
+<p>&#x63A5;&#x6536;&#x65B9;&#x53D1;&#x9001;ACK&#x65F6;&#x4E5F;&#x8981;&#x6709;&#x7F16;&#x53F7;</p>
+<p><img src="img/10.png" style="zoom:75%;"></p>
+<p><img src="img/11.png" style="zoom:75%;"></p>
+<h4 id="rdt-30-packet-loss-timeout">rdt 3.0: packet loss (timeout)</h4>
+<p>&#x89E3;&#x51B3;&#x53D1;&#x9001;&#x65B9;&#x4E0D;&#x77E5;&#x9053;&#x662F;&#x6570;&#x636E;&#x5206;&#x7EC4;&#x4E22;&#x5931;&#xFF0C;ACK&#x4E22;&#x5931;&#xFF0C;&#x8FD8;&#x662F;&#x8FC7;&#x5EA6;&#x5EF6;&#x8FDF;</p>
+<p><img src="img/12.png" style="zoom:75%;"></p>
+<h4 id="pipelined-rdt">Pipelined rdt</h4>
+<p><img src="img/13.png" style="zoom:75%;"></p>
+<p>&#x89E3;&#x51B3;&#x4E22;&#x5931;&#xFF0C;&#x635F;&#x574F;&#x53CA;&#x5EF6;&#x65F6;&#x8FC7;&#x5927;&#x5206;&#x7EC4;&#x7684;&#x65B9;&#x5F0F;</p>
+<h5 id="go-back-n-gbn">Go-Back-N (GBN)</h5>
+<p><img src="img/14.png" alt=""></p>
+<p>&#x5982;&#x679C;&#x8D85;&#x65F6;&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x91CD;&#x4F20;&#x6240;&#x6709;&#x5DF2;&#x53D1;&#x4F46;&#x672A;&#x88AB;&#x786E;&#x8BA4;&#x7684;&#x5206;&#x7EC4;</p>
+<p><img src="img/16.png" alt=""></p>
+<h5 id="selective-repeat-sr">Selective Repeat (SR)</h5>
+<p><img src="img/18.png" style="zoom:90%;"></p>
+<p>&#x5728;&#x63A5;&#x53D7;&#x65B9;&#x52A0;&#x4E00;&#x4E2A;&#x7F13;&#x5B58;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x672A;&#x6536;&#x5230;&#x6570;&#x636E;&#x540E;&#x8FB9;&#x7684;&#x6570;&#x636E;</p>
+<p><img src="img/17.png" alt=""></p>
+<h3 id="tcptransmission-control-protocol"><strong>TCP</strong>(Transmission Control Protocol)</h3>
+<ul>
+<li>point-to-point: one sender, one receiver </li>
+<li>reliable, in-order <em>byte steam:</em> no &#x201C;message boundaries&quot;</li>
+<li>full duplex data: bi-directional data flow in same connection; MSS: maximum segment size</li>
+<li>cumulative ACKs</li>
+<li>pipelining: TCP congestion and flow control set window size</li>
+<li>connection-oriented:  3-way handshaking</li>
+<li>flow controlled: sender will not overwhelm receiver</li>
+</ul>
+<h4 id="tcp-segment-structure"><strong>TCP Segment Structure</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\19.png" alt=""></p>
+<p><strong>Sequence number:</strong> &#x7528;&#x6765;&#x5B9E;&#x73B0;&#x53EF;&#x9760;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x670D;&#x52A1;</p>
+<p><strong>ACK number&#xFF1A;</strong>&#x4E0B;&#x4E00;&#x4E2A;&#x5E94;&#x4F20;&#x7684;byte</p>
+<p><strong>rwnd&#xFF1A;</strong>&#x7528;&#x4E8E;&#x6D41;&#x91CF;&#x63A7;&#x5236;</p>
+<h4 id="tcp-sender-and-receiver"><strong>TCP Sender and Receiver</strong></h4>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\20.png" alt=""></p>
+<h5 id="&#x5F80;&#x8FD4;&#x65F6;&#x95F4;&#x7684;&#x4F30;&#x8BA1;&#x4E0E;&#x8D85;&#x65F6;">&#x5F80;&#x8FD4;&#x65F6;&#x95F4;&#x7684;&#x4F30;&#x8BA1;&#x4E0E;&#x8D85;&#x65F6;</h5>
+<p>&#x5927;&#x591A;&#x6570;TCP&#x4EC5;&#x5BF9;&#x67D0;&#x4E2A;&#x65F6;&#x523B;&#x505A;&#x4E00;&#x6B21;SampleRTT&#x6D4B;&#x91CF; &#xFF08;$\alpha$ &#x63A8;&#x8350;&#x503C;&#x4E3A;0.125&#xFF09;</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\21.png" alt=""></p>
+<p>DevRTT&#x7528;&#x4E8E;&#x4F30;&#x7B97;SampleRTT&#x504F;&#x79BB;EstimatedRTT&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x6CE2;&#x52A8;&#x8D8A;&#x5C0F;&#xFF0C;&#x5176;&#x503C;&#x8D8A;&#x5C0F;&#xFF08;$\beta$ &#x63A8;&#x8350;&#x503C;&#x662F;0.25&#xFF09;</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\22.png" alt=""></p>
+<p><strong>TimeoutInterval</strong></p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\23.png" alt=""></p>
+<h4 id="tcp-retransmission-scenarios"><strong>TCP Retransmission Scenarios</strong></h4>
+<p><strong>The acknowledgment from B to A gets lost</strong>: In this case, the timeout event occurs, and Host A retransmits the same segment. Of course, when Host B receives the retransmission, it observes from the sequence number that the segment contains data that has already been received. Thus, TCP in Host B will discard the bytes in the retransmitted segment.</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\24.png" style="zoom:75%;"></p>
+<p><strong>Neither of the acknowledgments arrives at Host A before the timeout</strong> :When the timeout event occurs, Host A resends the first segment with sequence number 92 and restarts the timer. As long as the ACK for the second segment arrives before the new timeout, the second segment will not be retransmitted.</p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\25.png" style="zoom:75%;"></p>
+<p><strong>The acknowledgment of the first segment is lost in the network, but just before the timeout event, Host A receives an acknowledgment with acknowledgment number 120. </strong>Host A therefore knows that Host B has received everything up through byte 119; so Host A does not resend either of the two segments. </p>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\26.png" style="zoom:75%;"></p>
+<h4 id="fast-retransmit">Fast retransmit</h4>
+<p>When a segment is lost, this long timeout period forces the sender to delay resending the lost packet, thereby increasing the end-to-end delay. </p>
+<p><strong>Duplicate ACK</strong> : an ACK that reacknowledges a segment for which the sender has already received an earlier acknowledgment.</p>
+<p>Three duplicate ACKs are received, the TCP sender performs a <strong>fast retransmit</strong></p>
+<p><img src="img/27.png" style="zoom:75%;"></p>
+<p><strong>Selective acknowledgment</strong>: allows a TCP receiver to acknowledge out-of-order segments selectively rather than just cumulatively acknowledging the last correctly received, in-order segment. TCP &#x2019;s error-recovery mechanism is probably best categorized as a hybrid of GBN and SR protocols.</p>
+<h4 id="flow-control&#x63A5;&#x6536;&#x7AEF;&#x628A;&#x5185;&#x5BB9;&#x592A;&#x591A;">Flow Control[&#x63A5;&#x6536;&#x7AEF;&#x628A;&#x5185;&#x5BB9;&#x592A;&#x591A;]</h4>
+<p><img src="img/28.png" alt=""></p>
+<p><strong>rwnd field</strong></p>
+<ul>
+<li>TCP receiver &#x201C;advertises&#x201D; free buffer space in <strong>rwnd</strong> field in TCP header</li>
+<li>Sender limits amount of unACKed (&#x201C;in-flight&#x201D;) data to received <strong>rwnd</strong></li>
+</ul>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\29.png" alt=""></p>
+<h4 id="tcp-connection-management"><strong>TCP Connection Management</strong></h4>
+<h5 id="open-a-connection">Open a connection</h5>
+<p>&#x200B;    <strong>Problems with 2-way handshake</strong></p>
+<p>&#x200B;    <img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\32.png" alt=""></p>
+<p>&#x200B;    <strong>3-way handshake</strong></p>
+<ol>
+<li>The client-side TCP first sends a special TCP segment to the server-side TCP. This special segment contains no application-layer data. But one of the flag bits in the segment&#x2019;s header , the SYN bit, is set to 1. For this reason, this special segment is referred to as a <strong>SYN segment</strong></li>
+<li>Once the IP datagram containing the TCP SYN segment arrives at the server host (assuming it does arrive!), the server extracts the TCP SYN segment from the datagram, allocates the TCP buffers and variables to the connection, and sends a connection-granted segment to the client TCP. The connection-granted segment is referred to as a <strong>SYNACK segment</strong>.</li>
+<li>Upon receiving the SYNACK segment, the client also allocates buffers and variables to the connection. The client host then sends the server yet another segment; The SYN bit is set to zero, since the connection is established. This third stage of the three-way handshake may carry client-toserver data in the segment payload.</li>
+</ol>
+<p>&#x200B;    <img src="img/30.png" alt=""></p>
+<h5 id="close-a-connection">Close a connection</h5>
+<p>the client TCP to send a special TCP segment to the server process. This special segment has a flag bit in the segment&#x2019;s header, the FIN bit set to 1. When the server receives this segment, it sends the client an acknowledgment segment in return. The server then sends its own shutdown segment, which has the FIN bit set to 1. Finally, the client acknowledges the server&#x2019;s shutdown segment. </p>
+<p><img src="img/31.png" alt=""></p>
+<h4 id="congestion-control-&#x7F51;&#x7EDC;&#x4E2D;&#x95F4;&#x53CA;&#x8DEF;&#x7531;&#x4EA7;&#x751F;&#x62E5;&#x585E;"><strong>Congestion Control</strong> [&#x7F51;&#x7EDC;&#x4E2D;&#x95F4;&#x53CA;&#x8DEF;&#x7531;&#x4EA7;&#x751F;&#x62E5;&#x585E;]</h4>
+<h5 id="the-problem-of-congestion">The problem of &#x201C;congestion&#x201D;</h5>
+<ul>
+<li><p>Scenario 1: Two Senders, a Router with Infinite Buffers</p>
+<p><img src="img/33.png" alt=""></p>
+<p>&#x5F53;&#x53D1;&#x9001;&#x901F;&#x7387;&#x63A5;&#x8FD1;&#x4E8E;&#x603B;&#x541E;&#x5410;&#x91CF;&#x65F6;&#xFF0C;&#x65F6;&#x5EF6;&#x4F1A;&#x75AF;&#x72C2;&#x4E0A;&#x5347;</p>
+</li>
+<li><p>Scenario 2: Two Senders and a Router with Finite Buffers</p>
+</li>
+</ul>
+<p><img src="img/34.png" alt=""></p>
+<p>&#x200B;    &#x5F53;&#x53D1;&#x9001;&#x901F;&#x7387;&#x4E0A;&#x5347;&#xFF0C; &#x603B;&#x541E;&#x5410;&#x91CF;&#x4E0A;&#x5347;&#x7F13;&#x6162;</p>
+<ul>
+<li>Scenario 3: Four Senders, Routers with Finite Buffers, and Multihop Paths</li>
+</ul>
+<p><img src="img/35.png"></p>
+<p>&#x200B;    &#x4F1A;&#x51FA;&#x73B0;&#x4E24;&#x6761;&#x8DEF;&#x76F8;&#x4E92;&#x7ADE;&#x4E89;&#x7684;&#x73B0;&#x8C61;</p>
+<h5 id="approaches">Approaches</h5>
+<ul>
+<li><strong>End-end congestion control (inferred from loss and delay)&#xFF1A;</strong>the network layer provides no explicit support to the transport layer for congestion-control purposes. TCP takes this end-to-end approach toward congestion control</li>
+<li><strong>Network-assisted congestion control (TCP ECN bit)&#xFF1A;</strong>With network-assisted congestion control, routers provide explicit feedback to the sender and/or receiver regarding the congestion state of the network. This feedback may be as simple as a single bit indicating congestion at a link.</li>
+</ul>
+<h4 id="congestion-control-algorithm-aimd"><strong>Congestion Control Algorithm: AIMD</strong></h4>
+<p><strong>&#x9650;&#x5236;&#x53D1;&#x9001;&#x7684;&#x6D41;&#x91CF;&#xFF1A;</strong></p>
+<p><img src="img/36.png" alt=""></p>
+<p>cwnd:   &#x62E5;&#x585E;&#x7A97;&#x53E3;&#xFF08;Congestion Control&#xFF09;</p>
+<p>rwnd&#xFF1A;&#x63A5;&#x6536;&#x7A97;&#x53E3;&#xFF08;Flow Control&#xFF09;</p>
+<p><strong>&#x5982;&#x4F55;&#x611F;&#x77E5;&#x8DEF;&#x5F84;&#x4E0A;&#x53D1;&#x9001;&#x62E5;&#x585E;&#xFF1A;</strong></p>
+<p> the occurrence of either a timeout or the receipt of three duplicate ACKs from the receiver. </p>
+<p><strong>&#x600E;&#x6837;&#x786E;&#x5B9A;&#x53D1;&#x9001;&#x7684;&#x901F;&#x7387;&#xFF1A;</strong></p>
+<h5 id="tcp-aimd">TCP AIMD</h5>
+<h5 id="tcp-slow-start">TCP slow start</h5>
+<p>Additive Increase&#xFF1A; Increase sending rate by 1 maximum segment size every RTT until loss detected&#xFF08;&#x6574;&#x4E2A;&#x901F;&#x7387;&#x4EE5;&#x6B21;&#x65B9;&#x589E;&#x957F;&#xFF09;</p>
+<p>Multiplicative Decrease&#xFF1A; </p>
+<ul>
+<li>TCP Reno: cut in half on triple duplcate ACKs</li>
+<li>TCP Tahoe: cut to 1 MSS on timeout</li>
+</ul>
+<p><img src="C:\Users\65151\Desktop\Computer Network\2 Transport Layer\img\37.png" style="zoom:75%;"></p>
+<h5 id="congestion-avoidance">Congestion avoidance</h5>
+<p><img src="img/38.png" alt=""></p>
+<h3 id="tahoe">Tahoe</h3>
+<p>Tahoe&#x662F;TCP&#x7684;&#x6700;&#x65E9;&#x7248;&#x672C;&#xFF0C;&#x5176;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x4E2A;&#x7B97;&#x6CD5;&#x53BB;&#x63A7;&#x5236;&#x6570;&#x636E;&#x6D41;&#x548C;&#x62E5;&#x585E;&#x7A97;&#x53E3;&#x3002;</p>
+<p>Slow Start&#xFF08;&#x6162;&#x542F;&#x52A8;&#xFF09;
+&#xFF08;ssthresh&#xFF1A;slow start thresh&#xFF0C;&#x6162;&#x542F;&#x52A8;&#x95E8;&#x9650;&#x503C;&#xFF09;
+&#x5F53;cwnd&#x7684;&#x503C;&#x5C0F;&#x4E8E;ssthresh&#x65F6;&#xFF0C;TCP&#x5219;&#x5904;&#x4E8E;slow start&#x9636;&#x6BB5;&#xFF0C;&#x6BCF;&#x6536;&#x5230;&#x4E00;&#x4E2A;ACK&#xFF0C;cwnd&#x7684;&#x503C;&#x5C31;&#x4F1A;&#x52A0;1&#x3002;
+&#x4ED4;&#x7EC6;&#x5206;&#x6790;&#xFF0C;&#x5176;&#x5B9E;&#x6162;&#x542F;&#x52A8;&#x5E76;&#x4E0D;&#x6162;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;RTT&#x7684;&#x65F6;&#x95F4;&#xFF0C;cwnd&#x7684;&#x503C;&#x5C31;&#x4F1A;&#x53D8;&#x6210;&#x539F;&#x6765;&#x7684;&#x4E24;&#x500D;&#xFF0C;&#x5B9E;&#x4E3A;&#x6307;&#x6570;&#x589E;&#x957F;&#x3002;
+Congestion Avoidance&#xFF08;&#x62E5;&#x585E;&#x907F;&#x514D;&#xFF09;
+&#x5F53;cwnd&#x7684;&#x503C;&#x8D85;&#x8FC7;ssthresh&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;Congestion Avoidance&#x9636;&#x6BB5;&#xFF0C;&#x5728;&#x8BE5;&#x9636;&#x6BB5;&#x4E0B;&#xFF0C;cwnd&#x4EE5;&#x7EBF;&#x6027;&#x65B9;&#x5F0F;&#x589E;&#x957F;&#xFF0C;&#x5927;&#x7EA6;&#x6BCF;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;RTT&#xFF0C;cwnd&#x7684;&#x503C;&#x5C31;&#x4F1A;&#x52A0;1
+Fast Retransmit&#xFF08;&#x5FEB;&#x91CD;&#x4F20;&#xFF09;
+&#x6309;&#x7167;&#x62E5;&#x585E;&#x907F;&#x514D;&#x7B97;&#x6CD5;&#x4E2D;cwnd&#x7684;&#x589E;&#x957F;&#x8D8B;&#x52BF;&#xFF0C;&#x8FDF;&#x65E9;&#x4F1A;&#x9020;&#x6210;&#x62E5;&#x585E;&#xFF08;&#x4E00;&#x822C;&#x901A;&#x8FC7;&#x662F;&#x5426;&#x4E22;&#x5305;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53D1;&#x751F;&#x4E86;&#x62E5;&#x585E;&#xFF09;&#x3002;
+&#x5982;&#x679C;&#x4E2D;&#x7F51;&#x7EDC;&#x4E2D;&#x53D1;&#x751F;&#x4E86;&#x4E22;&#x5305;&#xFF0C;&#x901A;&#x8FC7;&#x7B49;&#x5F85;&#x4E00;&#x4E2A;RTO&#x65F6;&#x95F4;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x91CD;&#x4F20;&#xFF0C;&#x662F;&#x975E;&#x5E38;&#x8017;&#x65F6;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;RTO&#x901A;&#x5E38;&#x8BBE;&#x7F6E;&#x5F97;&#x4F1A;&#x6BD4;&#x8F83;&#x5927;&#xFF08;&#x907F;&#x514D;&#x4F2A;&#x91CD;&#x4F20;&#xFF1A;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x91CD;&#x4F20;&#xFF09;&#x3002;
+&#x5FEB;&#x91CD;&#x4F20;&#x7684;&#x601D;&#x60F3;&#x662F;&#xFF1A;&#x53EA;&#x8981;&#x53D1;&#x9001;&#x65B9;&#x6536;&#x5230;&#x4E86;&#x4E09;&#x4E2A;&#x91CD;&#x590D;&#x7684;ACK&#xFF08;&#x5982;&#x679C;&#x4E0D;&#x4E86;&#x89E3;&#x4E09;&#x4E2A;&#x91CD;&#x590D;ACK&#x5982;&#x4F55;&#x4EA7;&#x751F;&#xFF0C;&#x8BF7;&#x6E29;&#x6545;&#x4E00;&#x4E0B;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x534F;&#x8BAE;&#xFF09;&#xFF0C;&#x5C31;&#x4F1A;&#x7ACB;&#x9A6C;&#x91CD;&#x4F20;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x7B49;&#x5230;RTO&#x5230;&#x8FBE;&#xFF08;&#x5982;&#x679C;&#x6CA1;&#x6709;3&#x4E2A;&#x91CD;&#x590D;&#x7684;ACK&#x800C;&#x5305;&#x4E22;&#x5931;&#x4E86;&#xFF0C;&#x5C31;&#x53EA;&#x80FD;&#x8D85;&#x65F6;&#x91CD;&#x4F20;&#xFF09;&#xFF1B;
+&#x5E76;&#x4E14;&#x5C06;ssthresh&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;cwnd&#x7684;&#x4E00;&#x534A;&#xFF0C;&#x800C;cwnd&#x51CF;&#x4E3A;1&#xFF0C;&#x91CD;&#x56DE;slow start&#x9636;&#x6BB5;&#x3002;</p>
+<h3 id="reno">Reno</h3>
+<p>&#x9664;&#x4E86;&#x5305;&#x542B;Tahoe&#x7684;&#x4E09;&#x4E2A;&#x7B97;&#x6CD5;&#xFF0C;Reno&#x591A;&#x4E86;&#x4E00;&#x4E2A;Fast Recovery&#xFF08;&#x5FEB;&#x901F;&#x6062;&#x590D;&#xFF09;&#x7B97;&#x6CD5;&#x3002;</p>
+<p>&#x5F53;&#x6536;&#x5230;&#x4E09;&#x4E2A;&#x91CD;&#x590D;&#x7684;ACK&#x6216;&#x662F;&#x8D85;&#x8FC7;&#x4E86;RTO&#x65F6;&#x95F4;&#x4E14;&#x5C1A;&#x672A;&#x6536;&#x5230;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x7684;ACK&#xFF0C;Reno&#x5C31;&#x4F1A;&#x8BA4;&#x4E3A;&#x4E22;&#x5305;&#x4E86;&#xFF0C;&#x5E76;&#x8BA4;&#x5B9A;&#x7F51;&#x7EDC;&#x4E2D;&#x53D1;&#x751F;&#x4E86;&#x62E5;&#x585E;&#x3002;
+Reno&#x4F1A;&#x628A;&#x5F53;&#x524D;&#x7684;ssthresh&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;cwnd&#x7684;&#x4E00;&#x534A;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x4F1A;&#x56DE;&#x5230;slow start&#x9636;&#x6BB5;&#xFF0C;&#x800C;&#x662F;&#x5C06;cwnd&#x8BBE;&#x7F6E;&#x4E3A;&#xFF08;&#x66F4;&#x65B0;&#x540E;&#x7684;&#xFF09;ssthresh+3MSS&#xFF0C;&#x4E4B;&#x540E;cwnd&#x5448;&#x7EBF;&#x6027;&#x589E;&#x957F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../1 Application Layer/Application Layer.html" class="navigation navigation-prev " aria-label="Previous page: Application Layer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../3 Network Layer/Network Layer.html" class="navigation navigation-next " aria-label="Next page: Network Layer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Transport Layer","level":"1.2.3","depth":2,"next":{"title":"Network Layer","level":"1.2.4","depth":2,"path":"3 Network Layer/Network Layer.md","ref":"3 Network Layer/Network Layer.md","articles":[]},"previous":{"title":"Application Layer","level":"1.2.2","depth":2,"path":"1 Application Layer/Application Layer.md","ref":"1 Application Layer/Application Layer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","katex","chapter-fold","code","splitter","-lunr","-search","search-pro","insert-logo"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"img/logo.png"}},"theme":"default","author":"Ivan Mao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitbook使用教程","language":"zh-hans","gitbook":"*","description":"学习Gitbook时总结的笔记"},"file":{"path":"2 Transport Layer/Transport Layer.md","mtime":"2023-02-11T08:13:31.296Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-03T01:47:13.518Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
